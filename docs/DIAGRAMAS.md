@@ -144,7 +144,7 @@ classDiagram
 
 ## 3. Cómo utilizar los diagramas en la práctica
 
-Para la **caja blanca**, localizar los métodos asignados en los servicios de dominio y construir sus propios grafos a partir del código real. Este UML no es un grafo de control.
+Para la **caja blanca**, localizar los métodos asignados en los servicios de dominio y construir sus propios grafos a partir del código real.
 
 Para la **caja negra**, deducir clases de equivalencia, límites y resultados esperados de la especificación y contrastarlos mediante las pantallas web. La arquitectura permite entender qué capas intervienen, pero no revela por sí sola todas las reglas de negocio.
 
