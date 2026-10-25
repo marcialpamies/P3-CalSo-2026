@@ -1,7 +1,5 @@
 # Guía del alumnado · Entorno, versiones y resolución de incidencias
 
-> Material para la **rama del alumnado**. Forma parte de las instrucciones de la P3, pero **no contiene soluciones de los casos de prueba**. Las versiones son las establecidas por el `pom.xml` y el workflow docente de referencia; el equipo local no tiene por qué coincidir exactamente.
-
 ## 1. Versiones de referencia y alcance
 
 | Componente | Referencia del proyecto | ¿Qué debe hacer el alumnado? |
@@ -17,7 +15,7 @@
 | Chrome | Versión compatible con el WebDriver disponible | Selenium Manager gestiona ChromeDriver; puede necesitar conexión para descargarlo |
 | Eclipse | IDE recomendado | Actualizar la configuración Maven después de hacer Pull |
 
-**No se exige que todos los integrantes tengan la misma versión exacta de Eclipse o Chrome.** Sí deben justificar y resolver las incompatibilidades que impidan reproducir los resultados. No cambiar la versión de una dependencia por iniciativa propia sin comprobar antes su compatibilidad y conservar los tests.
+**No se exige, pero se recomienda, que todos los integrantes tengan la misma versión exacta de Eclipse o Chrome.** Sí deben justificar y resolver las incompatibilidades que impidan reproducir los resultados. No cambiar la versión de una dependencia por iniciativa propia sin comprobar antes su compatibilidad y conservar los tests.
 
 ## 2. Comprobación del entorno
 
@@ -51,7 +49,7 @@ Para realizar la práctica en Eclipse: importar el proyecto como **Existing Mave
 | Resultados diferentes por fecha actual | Perfil Spring `e2e` y reloj fijo del proyecto | Reproducir mediante el perfil de pruebas; no depender de la fecha real del ordenador |
 | Tests de dominio fallidos tras introducir una prueba | Entradas y **oráculo de la especificación** | Analizar el posible defecto: no modificar la expectativa únicamente para conseguir GREEN |
 
-La referencia de versiones se encuentra en `pom.xml` y en el workflow; una guía impresa puede quedarse desactualizada si hay cambios posteriores.
+La referencia de versiones se encuentra en `pom.xml` y en el workflow.
 
 ## 4. Reglas de actuación ante una incidencia
 
@@ -59,7 +57,7 @@ La referencia de versiones se encuentra en `pom.xml` y en el workflow; una guía
 2. Distinguir si se trata de **configuración**, **problema del test**, **defecto funcional** o **incidencia de ejecución de Maven o Actions**.
 3. Proponer el cambio mínimo y justificarlo técnicamente.
 4. Volver a ejecutar el test afectado y la regresión correspondiente.
-5. Anotar en `README_P3.md` las desviaciones significativas respecto del entorno de referencia, las decisiones adoptadas y los resultados.
+5. Anotar en `README.md` las desviaciones significativas respecto del entorno de referencia, las decisiones adoptadas y los resultados.
 
 **No se deben** borrar pruebas, rebajar aserciones, desactivar plugins ni cambiar el código de producción únicamente para ocultar un fallo de entorno. Los tokens y contraseñas no se adjuntarán a evidencias ni se subirán al repositorio.
 
