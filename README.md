@@ -1,4 +1,4 @@
-# Práctica 3 · Diseño y ejecución de pruebas de software
+# Práctica 3. Diseño y ejecución de pruebas de software de caja blanca y de caja negra
 
 **Asignatura:** Calidad del Software · Curso 2026–2027  
 **Caso de estudio:** Dojo Reservation
