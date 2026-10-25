@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Búsqueda de dojos · Corverus</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body><div class="wrapper">
+<header><div class="brand"><small>CalSo · Dojo Reservation</small><h1>Corverus · Entrenamientos</h1></div><nav aria-label="Secciones"><a href="/dojos" class="active" aria-current="page">Búsqueda</a><a href="/coste">Calcular coste</a></nav></header>
+<section class="hero"><p class="eyebrow">01 / Disponibilidad</p><h2>Encuentra el dojo adecuado para tu equipo</h2><p>Comprueba las armas necesarias y la disponibilidad para la fecha de entrenamiento elegida.</p></section>
+<main>
+<section class="panel" aria-labelledby="search-heading"><h2 id="search-heading">Criterios de búsqueda</h2><form action="/dojos" method="get"><div class="form-grid">
+<div class="field"><label for="teamId">Equipo</label><select id="teamId" name="teamId"><option value="EQ-001" th:selected="${teamId == 'EQ-001'}">Equipo Dragón</option><option value="EQ-002" th:selected="${teamId == 'EQ-002'}">Equipo Tigre</option><option value="EQ-003" th:selected="${teamId == 'EQ-003'}">Equipo Frontera Edad</option><option value="EQ-004" th:selected="${teamId == 'EQ-004'}">Equipo Frontera Dos Años</option><option value="EQ-005" th:selected="${teamId == 'EQ-005'}">Equipo Frontera Tres Años</option></select></div>
+<div class="field"><label for="trainingDate">Fecha de entrenamiento</label><input id="trainingDate" name="trainingDate" type="date" th:value="${trainingDate}" required></div>
+</div><div class="form-actions"><button class="button" type="submit" id="search">Buscar dojo</button></div></form></section>
+<p id="error" class="message error" role="alert" th:if="${error}" th:text="${error}"></p>
+<section class="panel" id="dojo-result" th:if="${dojoRows != null}" aria-labelledby="results-heading">
+<div class="result-heading"><span class="dot" aria-hidden="true"></span><h2 id="results-heading">Dojos evaluados</h2></div>
+<p class="table-intro">Resultados en orden de selección. El dojo elegido se destaca en verde.</p>
+<div class="table-scroll"><table id="dojo-table" class="dojo-table">
+<thead><tr><th scope="col">Identificador</th><th scope="col">Dojo</th><th scope="col">Armas requeridas</th><th scope="col">Disponibilidad</th><th scope="col">Resultado</th></tr></thead>
+<tbody><tr th:each="row : ${dojoRows}" th:classappend="${row.selected} ? 'selected-row' : ''" th:attr="data-dojo-id=${row.id}">
+<td th:text="${row.id}"></td>
+<td><strong th:if="${row.selected}" id="dojo-name" th:text="${row.name}"></strong><span th:unless="${row.selected}" th:text="${row.name}"></span></td>
+<td><span class="status" th:classappend="${row.compatible} ? 'status-ok' : 'status-no'" th:text="${row.compatible} ? 'Compatible' : 'Incompatible'"></span></td>
+<td><span class="status" th:classappend="${row.available} ? 'status-ok' : 'status-no'" th:text="${row.available} ? 'Libre' : 'Ocupado'"></span></td>
+<td><span class="status status-picked" th:if="${row.selected}">Seleccionado</span><span class="status status-muted" th:unless="${row.selected}">No seleccionado</span></td>
+</tr></tbody></table></div>
+<div class="selected-summary" th:if="${dojo}">
+<p>Primer dojo compatible y libre: <strong id="dojo-id" th:text="${dojo.id}"></strong></p>
+<a class="button secondary" id="calculate-link" th:href="@{/coste(teamId=${teamId},dojoId=${dojo.id},trainingDate=${trainingDate})}">Calcular coste →</a>
+</div>
+<p id="no-dojo" class="empty" th:if="${dojo == null}">No hay dojos compatibles y disponibles para los criterios seleccionados.</p>
+</section>
+</main><footer>Entorno docente · Calidad del Software · Pruebas E2E</footer>
+</div></body></html>

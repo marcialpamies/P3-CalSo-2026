@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Coste de entrenamiento · Corverus</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body><div class="wrapper">
+<header><div class="brand"><small>CalSo · Dojo Reservation</small><h1>Corverus · Entrenamientos</h1></div><nav aria-label="Secciones"><a href="/dojos">Búsqueda</a><a href="/coste" class="active" aria-current="page">Calcular coste</a></nav></header>
+<section class="hero"><p class="eyebrow">02 / Presupuesto</p><h2>Consulta el coste y la mejor bonificación</h2><p>Desglose transparente del precio base, las armas requeridas y el descuento más favorable.</p></section>
+<main><section class="panel" aria-labelledby="cost-heading"><h2 id="cost-heading">Datos de entrenamiento</h2><form action="/coste" method="get"><div class="form-grid">
+<div class="field"><label for="teamId">Equipo</label><select id="teamId" name="teamId"><option value="EQ-001" th:selected="${teamId == 'EQ-001'}">Equipo Dragón</option><option value="EQ-002" th:selected="${teamId == 'EQ-002'}">Equipo Tigre</option><option value="EQ-003" th:selected="${teamId == 'EQ-003'}">Equipo Frontera Edad</option><option value="EQ-004" th:selected="${teamId == 'EQ-004'}">Equipo Frontera Dos Años</option><option value="EQ-005" th:selected="${teamId == 'EQ-005'}">Equipo Frontera Tres Años</option></select></div>
+<div class="field"><label for="dojoId">Dojo</label><select id="dojoId" name="dojoId"><option value="D-001" th:selected="${dojoId == 'D-001'}">Dojo Norte</option><option value="D-002" th:selected="${dojoId == 'D-002'}">Dojo Centro</option><option value="D-003" th:selected="${dojoId == 'D-003'}">Dojo Sur</option></select></div>
+<div class="field"><label for="trainingDate">Fecha de entrenamiento</label><input id="trainingDate" name="trainingDate" type="date" th:value="${trainingDate}" required></div>
+</div><div class="form-actions"><button class="button" id="calculate" type="submit">Calcular coste</button></div></form></section>
+<p id="error" class="message error" role="alert" th:if="${error}" th:text="${error}"></p>
+<section class="panel" id="cost-result" th:if="${cost}"><div class="result-heading"><span class="dot" aria-hidden="true"></span><h2>Desglose económico</h2></div><div class="tiles">
+<div class="tile"><small>Precio base</small><strong><span id="base-price" th:text="${cost.basePrice.amount}"></span> €</strong></div>
+<div class="tile"><small>Suplemento por armas</small><strong><span id="weapons-price" th:text="${cost.weaponSupplement.amount}"></span> €</strong></div>
+<div class="tile"><small>Subtotal</small><strong><span id="subtotal" th:text="${cost.subtotal.amount}"></span> €</strong></div>
+<div class="tile accent"><small>Mejor bonificación</small><strong><span id="discount" th:text="${cost.discount.percentage}"></span> %</strong></div>
+</div><div class="total"><span>Precio final del entrenamiento</span><strong><span id="final-price" th:text="${cost.finalPrice.amount}"></span> €</strong></div></section>
+</main><footer>Entorno docente · Calidad del Software · Pruebas E2E</footer>
+</div></body></html>
