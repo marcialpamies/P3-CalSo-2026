@@ -2,7 +2,7 @@
 
 ## 1. Qué está preparado
 
-El proyecto Maven incluye dependencias de **JUnit Jupiter**, **Selenium Java** y **Spring Boot**, además de perfiles para ejecutar pruebas unitarias y pruebas de navegador. El profesor facilitará las clases E2E `DojoSearchE2ETest` y `ReservationCostE2ETest` **sin los escenarios resueltos**, junto con `BrowserE2ESupport`.
+El proyecto Maven incluye dependencias de **JUnit Jupiter**, **Selenium Java** y **Spring Boot**, además de perfiles para ejecutar pruebas unitarias y pruebas de navegador. Se facilitan las clases E2E `DojoSearchE2ETest` y `ReservationCostE2ETest` **sin los escenarios resueltos**, junto con `BrowserE2ESupport`.
 
 Esta clase de apoyo abre/cierra Chrome, espera la navegación y proporciona:
 
@@ -29,7 +29,7 @@ Crear dos configuraciones en **Run As → Maven build...**:
 | Pruebas unitarias | `clean verify` | Ninguno |
 | Pruebas unitarias y Selenium | `clean verify` | `e2e` |
 
-En terminal, los comandos equivalentes son:
+En el terminal, los comandos equivalentes son:
 
 ```powershell
 mvn clean verify
@@ -44,8 +44,6 @@ El reloj de aplicación en ese perfil está fijado al **2026-10-20**, en la zona
 ## 3. Dónde incorporar los tests
 
 Los métodos de caja blanca se crearán en clases JUnit situadas bajo `src/test/java/`, dentro del paquete de pruebas de los servicios de dominio. Las pruebas E2E se incorporarán **únicamente** a los archivos suministrados para cada pantalla, reutilizando `BrowserE2ESupport`.
-
-No copiar pruebas ya resueltas de otros cursos ni modificar clases de infraestructura para introducir manualmente resultados esperados.
 
 ### Estructura de un test
 
@@ -126,9 +124,6 @@ Durante el mismo diseño de caja blanca, tras proponer los caminos independiente
 
 | Condicion atomica | Caso que evalua verdadero | Caso que evalua falso | Casos adicionales | Justificacion si no es factible |
 |---|---|---|---|---|
-
-No se exige MC/DC ni cubrir todas las condiciones de los cuatro metodos.
-
 
 ## Plantilla de GitHub Actions para el repositorio del grupo
 
