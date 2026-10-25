@@ -1,14 +1,34 @@
 # Especificación funcional · Dojo Reservation
 
-> **Especificación entregable al alumnado.** Define el comportamiento exigido de las pantallas y de los cuatro métodos. Las pruebas deben deducir sus resultados de este texto, **no de su ejecución observada**.
-
 ## 1. Datos y reglas generales
 
-Un equipo tiene identificador, nombre, fecha de inscripción, **exactamente cinco luchadores** y un conjunto de armas requeridas. Cada luchador tiene nombre, fecha de nacimiento y, opcionalmente, una fecha de inicio del desempleo. Para inscribirse en el equipo debe haber cumplido **16 años** en la fecha de inscripción. No se permite registrar desempleo anterior al decimosexto cumpleaños.
+Un equipo tiene las siguientes propiedades: 
+- Identificador
+- Nombre
+- Fecha de inscripción
+- **exactamente cinco luchadores**
+- Un conjunto de armas requeridas
 
-Un dojo tiene identificador, nombre, precio base y conjunto de armas disponibles. Las reservas contienen identificador de dojo y fecha de entrenamiento. Se comparan **identificador y fecha** para determinar la ocupación; una reserva de otro dojo o de otro día no bloquea al candidato.
+Cada luchador tiene: 
+- Nombre
+- Fecha de nacimiento
+- Opcionalmente, una fecha de inicio de la situación de desempleo
 
-El entrenamiento solicitado debe celebrarse **estrictamente después de la fecha actual del sistema de la aplicación**. El entorno automatizado E2E proporciona su propio reloj fijo; véase la guía técnica.
+Para que un individuo pueda inscribirse en un equipo debe haber cumplido **16 años** en la fecha de inscripción. No se permite registrar desempleo con anterioridad a los 16 años.
+
+Un dojo tiene: 
+- Identificador
+- Nombre
+- Precio base
+- Conjunto de armas disponibles
+
+Las reservas contienen: 
+- Identificador de dojo
+- Fecha de entrenamiento.
+
+Se comparan **identificador y fecha** para determinar la ocupación; una reserva de otro dojo o de otro día no bloquea al candidato.
+
+El entrenamiento solicitado debe celebrarse **estrictamente después de la fecha actual fijada en la aplicación**. El entorno automatizado E2E proporciona su propio reloj fijo; véase la guía técnica.
 
 ## 2. Método `DojoSearchService.containsAllRequiredWeapons`
 
