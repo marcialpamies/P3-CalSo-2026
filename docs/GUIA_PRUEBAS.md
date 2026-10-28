@@ -66,8 +66,8 @@ En pruebas de dominio, preparar explícitamente los datos y fechas. En E2E, llam
 
 ### Caminos independientes
 
-| Método | Nodo o camino identificado | Predicados/ramas | Datos de entrada y fecha | Resultado esperado según especificación | Nombre del test | Resultado ejecución |
-|---|---|---|---|---|---|---|
+| Método | Nodo o camino identificado | Datos de entrada y fecha | Resultado esperado según especificación | Nombre del test | Resultado ejecución |
+|---|---|---|---|---|---|
 
 Primero grafo; después complejidad; a continuación base mínima y tabla. Una excepción **inviable** debe justificarse; no debe fabricarse un dato inconsistente para fingir cobertura.
 
@@ -75,22 +75,22 @@ Primero grafo; después complejidad; a continuación base mínima y tabla. Una e
 
 **Primero** una tabla de clases:
 
-| Código de clase | Factor o estado de entrada | Condición de pertenencia | Válida / inválida | Comportamiento exigido |
+| Código de clase | Variable | Condición de pertenencia | Válida / inválida | Comportamiento exigido |
 |---|---|---|---|---|
 
 **Después** una tabla de casos:
 
-| ID del caso | Clases cubiertas | Equipo/dojo/fecha o URL concreta | Estado inicial | Resultado único esperado | Prueba |
+| ID del caso | Clases cubiertas | Equipo/dojo/fecha o URL concreta | Estado inicial | Resultado único esperado | Nombre prueba |
 |---|---|---|---|---|---|
 
 No limitarse a repetir cada opción del desplegable; deducir las clases según las reglas y la validación del servidor. Una misma combinación de entradas puede servir para comprobar salidas diferentes, siempre que sean métodos separados y cada resultado esté justificado.
 
 ### Valores límite
 
-| Factor | Valor inmediatamente inferior | Valor del límite | Valor inmediatamente superior | Casos elegidos y expectativas |
-|---|---|---|---|---|
+| Variable | Valor del límite | Valor elegido | Expectativas |
+|---|---|---|---|
 
-Para límites relativos al reloj, utilizar el **reloj fijo del perfil E2E**. Para los relacionados con edad y paro, consultar los equipos de prueba predefinidos en el catálogo.
+Para límites relativos al reloj, utilizar el **reloj fijo del perfil E2E**. Para los relacionados con edad y paro, consultar los equipos de prueba predefinidos en el catálogo o utilizar la llamada correspondiente de la url.
 
 ## 5. Identificación de elementos web
 
