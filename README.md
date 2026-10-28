@@ -42,7 +42,7 @@ Después de la fase anterior y **antes de implementar los tests**, cada integran
 | Integrante | Método | Decisión cuyo conjunto de condiciones se debe cubrir |
 |---|---|---|
 | Alumno 1 | `DojoSearchService.findFirstAvailableDojo` | La decisión del bucle de reservas que combina con `&&` la igualdad del identificador de dojo y de la fecha de entrenamiento |
-| Alumno 2 | `ReservationDiscountService.findYoungestFighter` | La decisión que combina con `||` la comprobación `youngest == null` y la comparación de las fechas de nacimiento |
+| Alumno 2 | `ReservationDiscountService.findYoungestFighter` | La decisión que combina con `\|\|` la comprobación `youngest == null` y la comparación de las fechas de nacimiento |
 
 Se identificarán las condiciones atómicas y los resultados verdadero y falso **efectivamente evaluados** en los casos ya propuestos para caminos independientes. Se tendrán en cuenta las reglas de cortocircuito de Java: una condición no evaluada no cuenta como falsa. Si faltan evaluaciones factibles, se propondrán **solo las pruebas necesarias** para cubrirlas, con sus entradas, fechas y resultados funcionales esperados. Las evaluaciones no factibles deberán justificarse. No se exige cobertura de condiciones de otras decisiones.
 
